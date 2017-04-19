@@ -23,4 +23,12 @@ public class ApplicationIT {
 		String body = this.restTemplate.getForObject("/", String.class);
 		assertThat(body).contains("greeting");
 	}
+
+  // Uncomment below to fail the tests
+  /**
+  @Test
+  public void failingTest() {
+    Assert.assertTrue(false);
+  }
+  **/
 }

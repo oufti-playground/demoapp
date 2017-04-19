@@ -56,9 +56,12 @@ public class ApplicationTest {
                 .andExpect(content().string(containsString("Hello, Greg!")));
     }
 
-  	// @Test
-  	// public void failingTest() {
-    //   Assert.assertTrue(false);
-    // }
+    // Uncomment below to fail the tests
+    /**
+  	@Test
+  	public void failingTest() {
+      Assert.assertTrue(false);
+    }
+    **/
 
 }
