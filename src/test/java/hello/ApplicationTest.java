@@ -60,7 +60,7 @@ public class ApplicationTest {
     /**
   	@Test
   	public void failingTest() {
-      Assert.assertTrue(false);
+      assertThat(true).isFalse();
     }
     **/
 
