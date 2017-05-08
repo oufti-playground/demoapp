@@ -1,15 +1,8 @@
-FROM maven:3-jdk-8-alpine
+FROM alpine:edge
 
-# Install Some tool
-RUN apk add --no-cache git
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 
-# Install Docker client
-RUN curl -L -o /tmp/docker-latest.tgz \
-    "https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz" \
-  && tar xzf /tmp/docker-latest.tgz -C /tmp/ \
-  && mv /tmp/docker/* /usr/bin/ \
-  && chmod a+x /usr/bin/docker* \
-  && rm -rf /tmp/docker*
+RUN apk add --no-cache bash bats curl docker git maven openjdk8
 
 RUN echo '<settings><localRepository>/maven-cache/repository</localRepository></settings>' \
   > /settings.xml
