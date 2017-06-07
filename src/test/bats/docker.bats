@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-SUT_IMAGE="demoapp:latest"
+SUT_IMAGE="demoapp:$(git rev-parse --short HEAD)"
 SUT_CONTAINER="demoap-smoke-test"
 
 
