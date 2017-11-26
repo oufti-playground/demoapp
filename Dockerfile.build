@@ -1,11 +1,19 @@
-FROM alpine:edge
+FROM alpine:3.6
 
 # Install Some tools
 RUN apk add --no-cache \
+  bash \
+  bats \
   docker \
-  git
+  git \
+  maven \
+  openjdk8
 
-RUN echo '<settings><localRepository>/maven-cache/repository</localRepository></settings>' \
-  > "${MAVEN_HOME}/settings.xml"
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
+  MAVEN_HOME=/usr/share/java/maven-3
+
+RUN mkdir -p /root/.m2/ \
+  && echo '<settings><localRepository>/maven-cache/repository</localRepository></settings>' \
+  > "/root/.m2/settings.xml"
 
 VOLUME ["/maven-cache"]
