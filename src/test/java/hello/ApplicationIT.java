@@ -28,7 +28,7 @@ public class ApplicationIT {
   /**
   @Test
   public void failingTest() {
-    Assert.assertTrue(false);
+    assertThat(true).isFalse();
   }
   **/
 }
