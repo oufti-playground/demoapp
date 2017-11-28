@@ -4,4 +4,4 @@
 
 set -eux -o pipefail
 
-mvn verify 
+mvn -B -DskipUnitTests=true verify 

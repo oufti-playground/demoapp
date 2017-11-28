@@ -10,6 +10,9 @@
 
   <properties>
     <java.version>1.7</java.version>
+    <skipUnitTests>${skipTests}</skipUnitTests>
+    <skipITTests>${skipTests}</skipITTests>
+    <skipTests>false</skipTests>
   </properties>
 
   <parent>
@@ -36,6 +39,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
-    </plugins>
-  </build>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skipTests>${skipUnitTests}</skipTests>
+        </configuration>
+</plugin>
+<plugin>
+  <artifactId>maven-failsafe-plugin</artifactId>
+  <configuration>
+    <skipTests>${skipITTests}</skipTests>
+  </configuration>
+</plugin>
+</plugins>
+</build>
 </project>

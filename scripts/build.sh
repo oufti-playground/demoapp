@@ -4,4 +4,5 @@
 
 set -eux -o pipefail
 
-mvn clean package # Implies the goals 'compile' and 'test' (Unit Tests)
+# Implies the goals 'compile' and 'test' (Unit Tests)
+mvn -B -fail-never clean package
