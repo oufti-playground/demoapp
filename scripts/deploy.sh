@@ -9,7 +9,7 @@ echo "== Deploying to the artefact store..."
 sleep 5
 
 echo "== Triggering Delivery to the following environment:"
-echo "---- DEPLOY_TARGET=${DEPLOY_TARGET}"
+echo "---- DEPLOY_TARGET=${DEPLOY_TARGET:-staging}"
 sleep 5
 
 echo "== Deployed and delivered!"
