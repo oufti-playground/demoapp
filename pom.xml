@@ -43,6 +43,7 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+          <forkMode>none</forkMode>
           <skipTests>${skipUnitTests}</skipTests>
         </configuration>
       </plugin>
