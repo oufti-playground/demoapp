@@ -50,6 +50,7 @@
       <plugin>
         <artifactId>maven-failsafe-plugin</artifactId>
         <configuration>
+          <forkMode>none</forkMode>
           <skipTests>${skipITTests}</skipTests>
         </configuration>
       </plugin>
