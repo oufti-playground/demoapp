@@ -2,8 +2,10 @@
 #
 # Deploy the application to the artefact repository
 
-set -eu -o pipefail
-set +x
+set -eux -o pipefail
+
+echo "== Checking artefact validity"
+ls -l "${WORKSPACE}/target"/*.jar
 
 echo "== Deploying to the artefact store..."
 sleep 5
