@@ -2,7 +2,7 @@
 #
 # Deploy the application to the artefact repository
 
-set -eux -o pipefail
+set -eu -o pipefail
 
 echo "== Checking for artefacts to deploy..."
 
