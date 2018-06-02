@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Run Integration Tests on the application
 
