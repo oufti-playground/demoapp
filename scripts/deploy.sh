@@ -4,14 +4,20 @@
 
 set -eux -o pipefail
 
-echo "== Checking artefact validity"
-ls -l "${WORKSPACE}/target"/*.jar
+echo "== Checking for artefacts to deploy..."
 
-echo "== Deploying to the artefact store..."
-sleep 5
+NUMBER_OF_ARTEFACTS_TO_DEPLOY="$(find "${WORKSPACE}" -type f -name "*.jar" | wc -l || echo '0')"
 
-echo "== Triggering Delivery to the following environment:"
-echo "---- DEPLOY_TARGET=${DEPLOY_TARGET:-staging}"
-sleep 5
+if [ "${NUMBER_OF_ARTEFACTS_TO_DEPLOY}" -gt 0 ]
+then
+  echo "== Deploying to the artefact store..."
+  find "${WORKSPACE}" -type f -name "*.jar" -exec echo "== Deploying {}" \;
 
-echo "== Deployed and delivered!"
+  echo "== Triggering Delivery to the following environment:"
+  echo "---- DEPLOY_TARGET=${DEPLOY_TARGET:-staging}"
+  sleep 1
+
+  echo "== Deployed and delivered!"
+else
+  echo "== No artefacts found in ${WORKSPACE}/target. Nothing to do."
+fi
