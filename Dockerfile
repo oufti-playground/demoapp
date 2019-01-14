@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine AS run-environment
+FROM openjdk:8-jre-alpine
 
 COPY --from=build-environment /app/target/demoapp.jar /app.jar
 
