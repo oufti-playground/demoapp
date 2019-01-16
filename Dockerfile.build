@@ -5,7 +5,3 @@ RUN apk add --no-cache \
   bats \
   docker \
   git
-# Build Application
-WORKDIR /app/
-COPY ./ /app/
-RUN mvn -B verify
