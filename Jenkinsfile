@@ -3,14 +3,14 @@ pipeline {
         node {
             label 'second_maven_pod'}
     }
-   stages {
+    stages {
         stage('Check Maven') {
-          steps {
-              container('maven') {
-                sh 'mvn --version'
-                sh 'ls -l /root/.m2/repository'
-              }
-          }
+            steps {
+                container('maven') {
+                    sh 'mvn --version'
+                    sh 'ls -l /root/.m2/repository'
+                }
+            }
         }
     }
 }
