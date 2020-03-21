@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'second_maven_pod'}
+            label 'maven_pod'}
     }
     stages {
         stage('Check Maven') {
